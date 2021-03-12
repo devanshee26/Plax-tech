@@ -63,8 +63,6 @@ The system primely provides the following features :
 * Blog Engine for Placement preparation
 * Placement scopes on-campus and off-campus along with placement predictor.
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
-
 #### Built With
 
 The project is tech-rich made with multiple frameworks and libraries. The tech stack employeed for the developement is as listed below : 
