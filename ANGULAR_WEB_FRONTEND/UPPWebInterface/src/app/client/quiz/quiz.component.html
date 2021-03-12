@@ -1,0 +1,17 @@
+<h2 class="display-2" style="text-align: center; padding-top: 2%;">Subjects</h2>
+<div class="container" style="padding-top: 2%; ">
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      <a routerLink="/question/{{tile.text}}">
+        {{tile.text}}
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
+
+<app-footer-min></app-footer-min>

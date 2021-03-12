@@ -1,0 +1,76 @@
+<div *ngIf="status; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div style="margin-top: 100px; margin-bottom: 100px">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <h2 class="display-2" style="padding-top: 2%; text-align: center;">{{subject}}</h2>
+  <div class="container">
+    <mat-vertical-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>{{question[0].question}}
+          </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Pick an option</mat-label>
+            <mat-select formControlName="firstCtrl">
+              <mat-option value="{{question[0].options[0]}}">{{question[0].options[0]}}</mat-option>
+              <mat-option value="{{question[0].options[1]}}">{{question[0].options[1]}}</mat-option>
+              <mat-option value="{{question[0].options[2]}}">{{question[0].options[2]}}</mat-option>
+              <mat-option value="{{question[0].options[3]}}">{{question[0].options[3]}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>{{question[1].question}}
+          </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Pick an option</mat-label>
+            <mat-select formControlName="secondCtrl">
+              <mat-option value="{{question[1].options[0]}}">{{question[1].options[0]}}</mat-option>
+              <mat-option value="{{question[1].options[1]}}">{{question[1].options[1]}}</mat-option>
+              <mat-option value="{{question[1].options[2]}}">{{question[1].options[2]}}</mat-option>
+              <mat-option value="{{question[1].options[3]}}">{{question[1].options[3]}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>{{question[2].question}}
+          </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Pick an option</mat-label>
+            <mat-select formControlName="thirdCtrl">
+              <mat-option value="{{question[2].options[0]}}">{{question[2].options[0]}}</mat-option>
+              <mat-option value="{{question[2].options[1]}}">{{question[2].options[1]}}</mat-option>
+              <mat-option value="{{question[2].options[2]}}">{{question[2].options[2]}}</mat-option>
+              <mat-option value="{{question[2].options[3]}}">{{question[2].options[3]}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="finalScore()">Submit</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+</ng-template>
+<app-footer-min></app-footer-min>

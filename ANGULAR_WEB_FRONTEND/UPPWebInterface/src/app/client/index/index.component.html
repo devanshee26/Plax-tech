@@ -1,0 +1,29 @@
+<div *ngIf="status; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div style="margin-top: 100px; margin-bottom: 100px">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <div class="article-list">
+    <div class="container">
+      <div *ngFor="let q of newPosts" class="row articles">
+        <div *ngFor="let p of q" class="col-sm-6 col-md-4 item">
+          <a [routerLink]="['/post/', p._id]" routerLinkActive="active">
+            <img alt="image" class="img-fluid" src="{{p.imagePath}}"></a>
+          <h3 class="name">{{p.title}}</h3>
+          <p class="description">Posted By {{p.author}}</p>
+          <a [routerLink]="['/post/', p._id]" class="action" routerLinkActive="active"><i
+            class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<app-footer-min></app-footer-min>

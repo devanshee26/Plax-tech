@@ -1,0 +1,73 @@
+<div *ngIf="status; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div style="margin-top: 100px; margin-bottom: 100px">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="Title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let row">{{row.Title === undefined ? '-' : row.Title}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Company Name">
+        <th mat-header-cell *matHeaderCellDef>Company Name</th>
+        <td mat-cell *matCellDef="let row">{{row.company === undefined ? '-' : row.company}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Location">
+        <th mat-header-cell *matHeaderCellDef>Location </th>
+        <td mat-cell *matCellDef="let row">{{row.Location === undefined ? '-' : row.Location}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="History">
+        <th mat-header-cell *matHeaderCellDef>History </th>
+        <td mat-cell *matCellDef="let row">{{row.Job_Post_History === undefined ? '-' : row.Job_Post_History}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="URL">
+        <th mat-header-cell *matHeaderCellDef>URL </th>
+        <td mat-cell *matCellDef="let row"><a href="{{row.URL === undefined ? '-' : row.URL}}">Link</a></td>
+      </ng-container>
+
+      <ng-container matColumnDef="Ratings">
+        <th mat-header-cell *matHeaderCellDef>Ratings </th>
+        <td mat-cell *matCellDef="let row">{{row.Ratings === undefined ? '-' : row.Ratings}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Reviews">
+        <th mat-header-cell *matHeaderCellDef>Reviews </th>
+        <td mat-cell *matCellDef="let row">{{row.Reviews === undefined ? '-' : row.Reviews}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Experience">
+        <th mat-header-cell *matHeaderCellDef>Experience </th>
+        <td mat-cell *matCellDef="let row">{{row.Experience === undefined ? '-' : row.Experience}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Salary">
+        <th mat-header-cell *matHeaderCellDef>Salary </th>
+        <td mat-cell *matCellDef="let row">{{row.Salary === undefined ? '-' : row.Salary}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Qualification">
+        <th mat-header-cell *matHeaderCellDef>Qualification </th>
+        <td mat-cell *matCellDef="let row">{{row.Qualification === undefined ? '-' : row.Qualification}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</ng-template>
+<app-footer-min></app-footer-min>

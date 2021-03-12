@@ -1,0 +1,42 @@
+<div class="register-photo">
+  <div class="form-container">
+    <form method="post" (ngSubmit)="addUser()" [formGroup]="userForm">
+      <p *ngIf="message" class="text-danger text-center">{{message}}</p>
+      <h2 class="text-center"><strong>Register</strong></h2>
+      <div class="form-group">
+        <input class="form-control" formControlName="name" type="text" name="name" placeholder="Name">
+        <small *ngIf="userForm.get('name')?.hasError('required') && !userForm.get('name')?.untouched"
+               class="text-danger">Required!</small>
+      </div>
+      <div class="form-group">
+        <input class="form-control" formControlName="email" type="email" name="email" placeholder="Email" email>
+        <small *ngIf="userForm.get('email')?.hasError('required') && !userForm.get('email')?.untouched"
+               class="text-danger">Required!</small>
+      </div>
+      <div class="form-group">
+        <input class="form-control" formControlName="password" type="password" name="password" placeholder="Password">
+        <small *ngIf="userForm.get('password')?.hasError('required') && !userForm.get('password')?.untouched"
+               class="text-danger">Required!</small>
+      </div>
+      <div class="form-group">
+        <input class="form-control" formControlName="confirmPassword" type="password" name="password-repeat"
+               placeholder="Password (repeat)" pattern="{{userForm.controls.password.value}}">
+        <small
+          *ngIf="userForm.get('confirmPassword')?.hasError('required') && !userForm.get('confirmPassword')?.untouched"
+          class="text-danger">Required!</small>
+        <small
+          *ngIf="userForm.get('confirmPassword')?.hasError('pattern') && !userForm.get('confirmPassword')?.untouched"
+          class="text-danger">Password and Confirm Password is not matching</small>
+      </div>
+      <div class="form-group">
+        <re-captcha (resolved)="resolved($event)" siteKey="6LeIvzkaAAAAAEdo4JoUuRuYuQQUBdeyRhrsb1hn"></re-captcha>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block m-auto" type="submit" [disabled]="!userForm.valid || !this.isHuman">
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer-min></app-footer-min>

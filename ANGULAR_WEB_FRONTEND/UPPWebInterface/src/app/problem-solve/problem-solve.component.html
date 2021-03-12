@@ -1,0 +1,66 @@
+<div *ngIf="status; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div style="margin-top: 100px; margin-bottom: 100px">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <div class="container" style="background-color: #F0F0F0;">
+    <br/>
+    <div class="row">
+      <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+        <!-- Start: Intro -->
+        <div class="intro">
+          <h1 class="text-center">{{ problem.title }}</h1><!-- Start: Date and Author -->
+          <p class="text-center"><span class="by">by</span> {{problem.author}}</p>
+          <p class="text-center"><span class="by">Time-limit: </span>{{problem.TimeLimit}}s</p>
+          <p class="text-center"><span class="by">Memory-limit: </span>{{problem.MemoryLimit}}Kb</p>
+          <!-- End: Date and Author -->
+        </div><!-- End: Intro -->
+        <!-- Start: Statement -->
+        <angular-editor [config]="editorConfig" [(ngModel)]="problem.ProblemStatement"></angular-editor>
+        <!-- End: Statement -->
+        <!-- Start: InputTextCase -->
+        <div class="card">
+          <div class="card-header"><strong>Input</strong></div>
+          <div class="card-body" style="white-space: pre-line">{{problem.SampleTestCases[0].test}}</div>
+        </div><!-- End: InputTextCase -->
+        <!-- Start: OutputTestCase -->
+        <div class="card">
+          <div class="card-header"><strong>Output</strong></div>
+          <div class="card-body" style="white-space: pre-line">{{problem.SampleTestCases[0].output}}</div>
+        </div><!-- End: OutputTestCase -->
+        <br/>
+        <form method="post" [formGroup]="submissionForm" (ngSubmit)="add()">
+          <div class="form-group">
+              <textarea rows="25" class="form-control" name="source_code"
+                        formControlName="source_code">Code goes here</textarea>
+          </div>
+          <div class="form-group">
+            <select formControlName="language_id">
+              <option *ngFor="let p of languages" [value]="p.id">{{p.name}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+        <br>
+        <div class="card">
+          <div class="card-header"><strong>Status</strong></div>
+          <div class="card-body"
+               style="white-space: pre-line">{{compile_output != '' ? compile_output : (stderr != '' ? stderr : message)}}</div>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+  </div>
+</ng-template>
+<app-footer-min></app-footer-min>

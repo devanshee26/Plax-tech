@@ -1,0 +1,21 @@
+input[type="range"] {
+    width:60%;
+    background-color: black;
+    -webkit-appearance: none;
+    height: 5%;
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: #FFD400;
+
+  }
+
+  label{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-weight: bold;
+  }

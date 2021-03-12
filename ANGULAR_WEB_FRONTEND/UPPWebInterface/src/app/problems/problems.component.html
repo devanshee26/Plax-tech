@@ -1,0 +1,47 @@
+<div *ngIf="status; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div style="margin-top: 100px; margin-bottom: 100px">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <br/>
+  <div class="container">
+    <div class="row">
+      <div class="col bg-secondary">
+        Problem Code
+      </div>
+      <div class="col bg-secondary">
+        Time Limit
+      </div>
+      <div class="col bg-secondary">
+        Memory Limit
+      </div>
+      <div class="col bg-secondary text-center">
+        Link
+      </div>
+    </div>
+    <div class="row" *ngFor="let p of problems">
+      <div class="col">
+        {{p.title}}
+      </div>
+      <div class="col">
+        {{p.TimeLimit}} s
+      </div>
+      <div class="col">
+        {{p.MemoryLimit}} kb
+      </div>
+      <div class="col">
+        <a class="btn w-100" [routerLink]="['/problems/', p._id]"
+           routerLinkActive="active">Solve</a>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<app-footer-min></app-footer-min>

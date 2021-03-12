@@ -1,0 +1,46 @@
+<div class="container">
+  <h6 class="text-danger">{{this.message}}</h6>
+  <form method="post" [formGroup]="Form" (ngSubmit)="add()">
+    <h2 class="text-center">Add Problem</h2>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" class="form-control" type="text" name="title" placeholder="Title" formControlName="title">
+    </div>
+    <div class="form-group">
+      <label for="ProblemStatement">Problem Statement</label>
+      <angular-editor id="ProblemStatement" formControlName="ProblemStatement" [config]="editorConfig"></angular-editor>
+    </div>
+    <div class="form-group">
+      <label for="InputFormat">Input format</label>
+      <angular-editor id="InputFormat" formControlName="InputFormat" [config]="editorConfig"></angular-editor>
+    </div>
+    <div class="form-group">
+      <label for="OutputFormat">Output format</label>
+      <angular-editor id="OutputFormat" formControlName="OutputFormat" [config]="editorConfig"></angular-editor>
+    </div>
+    <div class="form-group">
+      <label for="SampleTestCasesTest">Sample test case input</label>
+      <textarea id="SampleTestCasesTest" formControlName="SampleTestCasesTest" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="SampleTestCasesOutput">Sample test case output</label>
+      <textarea id="SampleTestCasesOutput" formControlName="SampleTestCasesOutput" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="TestCasesTest">Test case input</label>
+      <textarea id="TestCasesTest" formControlName="TestCasesTest" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="TestCasesOutput">Test case output</label>
+      <textarea id="TestCasesOutput" formControlName="TestCasesOutput" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="Solution">Solution</label>
+      <textarea id="Solution" formControlName="Solution" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" [disabled]="!Form.valid">Add</button>
+    </div>
+  </form>
+</div>
+<app-footer-min></app-footer-min>

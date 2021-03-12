@@ -1,0 +1,37 @@
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+
+#angular web interface
+/ANGULAR_WEB_FRONTEND/UPPWebInterface/node_modules
+/ANGULAR_WEB_FRONTEND/UPPWebInterface/dist
+/ANGULAR_WEB_FRONTEND/UPPWebInterface/tmp
+/ANGULAR_WEB_FRONTEND/UPPWebInterface/bazel-out
+/ANGULAR_WEB_FRONTEND/UPPWebInterface/.idea
+/ANGULAR_WEB_FRONTEND/UPPWebInterface/src/proxy.config.json
+/ANGULAR_WEB_FRONTEND/UPPWebInterface/.sass-cache
+
+/NODE_EXPRESS_MONGO_BACKEND/nodemon.json
+/NODE_EXPRESS_MONGO_BACKEND//universityplacementportal-de41a39782d7.json

@@ -1,0 +1,133 @@
+<div style="text-align: center; padding-top: 2%;">
+    <h2 class="display-2">
+        Predict The Placement
+    </h2>
+</div>
+<div class="container" style="margin-bottom: 2%; border-width: medium; border-color: black;">
+    <div class="row" style="border :1px solid cadetblue; padding: 4%;">
+        <div class="col col-12">
+            <form action="#" [formGroup]="form">
+                <!-- ssc Percentage -->
+                <div class="form-group row">
+                    <label for="sscp" class="col-sm-2 col-form-label">SSC Percentage</label>
+                    <div class="col-sm-10">
+                        <input formControlName="ssc_p" type="range" class="form-range" min="0" max="100" step="0.5" #ssc (input)="ssc.value" id="sscp" >
+                        <label for="sscp" class="col-sm-2 col-form-label">{{ ssc.value }}%</label>
+                    </div>
+                </div>
+                <!-- hsc Percentage -->
+                <div class="form-group row">
+                    <label for="hscp" class="col-sm-2 col-form-label">HSC Percentage</label>
+                    <div class="col-sm-10">
+                        <input formControlName="hsc_p" type="range" class="form-range" min="0" max="100" step="0.5" #hsc (input)="hsc.value" id="hscp">
+                        <label for="sscp" class="col-sm-2 col-form-label">{{ hsc.value }}%</label>
+                    </div>
+                </div>
+                <!-- btech cpi -->
+                <div class="form-group row">
+                    <label for="bcpi" class="col-sm-2 col-form-label">B.tech CPI</label>
+                    <div class="col-sm-10">
+                        <input formControlName="degree_p" type="range" class="form-range" min="0" max="10" step="0.5" #btcpi (input)="btcpi.value" id="bcpi">
+                        <label for="sscp" class="col-sm-2 col-form-label">{{ btcpi.value }}CPI</label>
+                    </div>
+                </div>
+                <!-- work exp -->
+                <div class="form-group row">
+                    <label for="exp" class="col-sm-2 col-form-label">Work Experience</label>
+                    <div class="col-sm-10">
+                        <input formControlName="workex" type="range" class="form-range" min="0" max="10" step="1" #wexp (input)="wexp.value" id="exp">
+                        <label for="sscp" class="col-sm-2 col-form-label">{{ wexp.value }}Year(s)</label>
+                    </div>
+                </div>
+
+                <!-- gender -->
+                <div class="form-group row">
+                    <label for="chb" class="col-sm-3 col-form-label">Gender</label>
+                    <div class="form-check" id="chb">
+                        <input formControlName="gender" class="form-check-input" type="radio" id="exampleRadios1"
+                            value="0" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Female
+                        </label>
+                    </div>
+                    <div class="form-check" style="margin-left: 2%;">
+                        <input formControlName="gender" class="form-check-input" type="radio" id="exampleRadios2"
+                            value="1">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Male
+                        </label>
+                    </div>
+                </div>
+
+                <!-- stream -->
+                <div class="form-group row">
+                    <label for="stream" class="col-sm-3 col-form-label">High School Stream</label>
+                    <div class="form-check" id="stream">
+                        <input class="form-check-input" type="radio" formControlName="stream" id="exampleRadios3"
+                            value="1" checked>
+                        <label class="form-check-label" for="exampleRadios3">
+                            Science
+                        </label>
+                    </div>
+                    <div class="form-check" style="margin-left: 2%;">
+                        <input class="form-check-input" type="radio" formControlName="stream" id="exampleRadios4"
+                            value="2">
+                        <label class="form-check-label" for="exampleRadios4">
+                            Commerce
+                        </label>
+                    </div>
+                    <div class="form-check" style="margin-left: 2%;">
+                        <input class="form-check-input" type="radio" formControlName="stream" id="exampleRadios5"
+                            value="3">
+                        <label class="form-check-label" for="exampleRadios5">
+                            Arts
+                        </label>
+                    </div>
+                </div>
+                <!-- batcher -->
+                <div class="row">
+                    <label for="stream" class="col-sm-3 col-form-label">Batcher's Degree</label>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" formControlName="degree" value="1">Science and Technology
+                        </label>
+                    </div>
+                    <div class="form-check" style="margin-left: 2%;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" formControlName="degree" value="2">Commerce and Management
+                        </label>
+                    </div>
+                    <div class="form-check" style="margin-left: 2%;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" formControlName="degree" value="3">Others
+                        </label>
+                    </div>
+                </div>
+                <!-- specilization -->
+                <div class="form-group" style="margin:1%; margin-top: 2%;">
+                    <div class="form-check">
+                        <input formControlName="specialisation" class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label col-sm-2" for="gridCheck">
+                            Specilization
+                        </label>
+                    </div>
+                </div>
+                <!-- MS Percentage -->
+                <div class="form-group row">
+                    <label for="msp" class="col-sm-2 col-form-label">MS Percentage</label>
+                    <div class="col-sm-10">
+                        <input type="range" class="form-range" min="35" max="100" step="0.5" #msper (input)="msper.value" id="msp">
+                        <label for="sscp" class="col-sm-2 col-form-label">{{ msper.value }}%</label>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Predict Now" class="btn"
+                        style="background-color:#FFD400; align-items: center;" (click)="predict()"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-footer-min></app-footer-min>

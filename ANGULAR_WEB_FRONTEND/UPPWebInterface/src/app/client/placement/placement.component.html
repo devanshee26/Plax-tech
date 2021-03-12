@@ -1,0 +1,66 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
+
+<div class="row" style="padding: 1%;">
+  <!-- past record -->
+  <div style="padding: 3%;">
+    <mat-card class="placement-card" [class.mat-elevation-z8]="true">
+      <img mat-card-image src="https://storage.googleapis.com/placement_assets/PLACEMENT_IMAGES/on_campus.jpg"
+        alt="Photo of a Shiba Inu" style="opacity: 60%;">
+      <mat-card-content>
+        <h3><b>Past Record</b></h3>
+        <p style="font-size:medium;">
+         Learn more about the past placement trends of your campus. Get information about the companies that visited your campus.
+        </p>
+
+        <button class="btn" style="margin-left: 30%; background-color:#0A192F; color: azure; font-weight: 100;" routerLink="/past">View Records</button>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+  <!-- off campus -->
+
+  <div style="padding: 3%;">
+    <mat-card class="placement-card" [class.mat-elevation-z8]="true" >
+      <img mat-card-image src="https://storage.googleapis.com/placement_assets/PLACEMENT_IMAGES/off_campus.jpg"
+        alt="Placement" style="opacity: 60%;">
+      <mat-card-content>
+
+        <h3><b>Off Campus</b></h3>
+        <p style="font-size: medium;">
+          Know more about Off-Campus opportunities. Learn about the companies hiring off campus. The competition is real here!
+        </p>
+        <div class="row" style="align-content: center;">
+        <button class="btn" style="margin-left: 15%; background-color:#0A192F; color: azure; font-weight: 100;" routerLink="/plcrecord/google">Google</button>
+        <button class="btn" style="background-color:#0A192F; color: azure; font-weight: 100;" routerLink="/plcrecord/aws">Amazon</button>
+        <button class="btn" style="background-color:#0A192F; color: azure; font-weight: 100;" routerLink="/plcrecord/naukri">Others</button>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+  <!-- prediction -->
+  <div style="padding: 3%;">
+    <mat-card class="placement-card" [class.mat-elevation-z8]="true">
+
+      <img mat-card-image src="https://storage.googleapis.com/placement_assets/PLACEMENT_IMAGES/prediction.jpg"
+        alt="Placement" style="opacity: 60%;">
+      <mat-card-content>
+        <h3><b>Predict Your Placement </b></h3>
+        <p style="font-size: medium;">
+         Based on the past we can probably predict your future. Data knows everything. You can get to know if you will be placed or not based on your results. Try now!
+        </p>
+
+        <button class="btn" style="margin-left: 30%; background-color:#0A192F; color: azure; font-weight: 100;" (click)="predict()">Predict Now</button>
+
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</div>
+<app-footer-min></app-footer-min>
+
+

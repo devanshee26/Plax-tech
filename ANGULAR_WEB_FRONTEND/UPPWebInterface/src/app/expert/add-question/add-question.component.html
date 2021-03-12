@@ -1,0 +1,39 @@
+<div class="register-photo">
+  <div class="form-container">
+    <form method="post" (ngSubmit)="add()" [formGroup]="Form">
+      <p *ngIf="message" class="text-danger text-center">{{message}}</p>
+      <h2 class="text-center"><strong>Add Question</strong></h2>
+      <div class="form-group">
+        <label for="question">Question: </label>
+        <input type="text" id="question" formControlName="question" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <select formControlName="subject">
+          <option *ngFor="let p of subjects" [value]="p">{{p}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="correct_answer">Correct answer: </label>
+        <input type="text" id="correct_answer" formControlName="correct_answer" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label for="option2">Option - 2: </label>
+        <input type="text" id="option2" formControlName="option2" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label for="option3">Option - 3: </label>
+        <input type="text" id="option3" formControlName="option3" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label for="option4">Option - 4: </label>
+        <input type="text" id="option4" formControlName="option4" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block m-auto" type="submit" [disabled]="!Form.valid">
+          Add Question
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer-min></app-footer-min>

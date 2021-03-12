@@ -1,0 +1,106 @@
+<div>
+  <!-- 1st section starts here  -->
+  <div class="container-fluid py-5 my-5">
+
+    <blockquote class="blockquote">
+      <h1 class="pl-5 pt-2 mb-1 display-1 home-quote"> The only way to do great work is to love what you do.</h1>
+      <footer class="blockquote-footer pl-5" style="font-size: large;"><cite>Steve Jobs</cite></footer>
+    </blockquote>
+    <div class="row">
+
+      <!-- 1st card  -->
+      <div class="card col-md-3 mx-2 shadow rounded" style="max-height: 300px; margin-top: 200px;">
+        <div class="card-body">
+          <h2 class="card-title display-2 home-card-title">Dear Student</h2>
+          <h4 class="card-subtitle mb-2 text-muted" style="font-family: cursive;">There you are!</h4>
+          <p class="card-text home-card-text">The Industry is awaiting a highly skilled engineer. To make you
+            industry-ready, we are here with all the guidance that you need. You can find Blogs, Quizes, Coding
+            Questions and much more! </p>
+        </div>
+      </div>
+
+      <!-- 2nd card  -->
+      <div class="card col-md-2 shadow rounded" style="max-height: 300px; margin-top: 200px;">
+        <div class="card-body">
+          <h2 class="card-title display-2 home-card-title"></h2>
+          <p class="card-text home-card-text">Recruiter looks for in a students is a hard nut to Crack. You are expected
+            to have sound knowledge of the industry, proficiency in computer skills, and good communication skills.</p>
+        </div>
+      </div>
+      <!-- 2nd card ends  -->
+      <!-- img here    -->
+      <div class="col-md-5">
+        <img class="img-fluid  mx-5" style="max-height: 550px;"
+          src="https://storage.googleapis.com/placement_assets/PLACEMENT_IMAGES/home.png" alt="Placement Image">
+      </div>
+    </div>
+  </div>
+  <!-- 1st section ends here  -->
+
+ 
+  <!-- blog starts  -->
+  <div style="padding-left: 10%;">
+  <div class="article-list">
+      <div class="row articles" style="text-align: center;">
+        <div  *ngFor="let p of posts"  class="col-sm-6 col-md-3 item">
+          <a [routerLink]="['/post/', p._id]" routerLinkActive="active">
+            <img alt="image" class="img-fluid no-glutter" src="{{p.imagePath}}"></a>
+          <h3 class="card-title home-card-title">{{p.title}}</h3>
+          <p class="card-subtitle mb-2 text-muted" style="font-family: cursive;">Posted By {{p.author}}</p>
+          <button [routerLink]="['/post/', p._id]" class="btn btn-outline-info btn-sm" routerLinkActive="active">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- blog ends  -->
+
+  <!-- list of placement options -->
+  <section style="padding: 1%;">
+    <!-- placement-post-1  -->
+    <div *ngFor="let p of data" class="container">
+      <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+          <h2 class="display-2" class="card-title"
+            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <i class="fas fa-building"></i> {{p.Title}}
+          </h2>
+          <div class="row" style="padding-left: 1.5%; vertical-align:middle;">
+            <p class="card-text"
+              style="font-family: 'Courier New', Courier, monospace; font-size: medium; font-weight: normal; line-height: 0.8cm;">
+               Google >>  
+               {{p.Location}} >> 
+               Computer Engineering.
+            </p>
+            <a class="btn btn-outline-info btn-sm " href={{p.URL}}>Know More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- placement post 1 ends here  -->
+
+  
+  </section>
+  <!-- placement list ends here -->
+
+  <!-- competitive coding starts here -->
+  <!-- cc row 1 -->
+  <div *ngFor="let p of problems" class="row" style="padding: 3%;">
+    <!-- cc-card-1  -->
+    <div class="card bg-light mb-3 shadow rounded" style="max-width: 18rem; margin: 2%;">
+      <div class="card-header">{{p.title}}</div>
+      <div class="card-body">
+        <h3 class="card-title card-subtitle mb-2 text-muted"> By - {{p.author}} </h3><br>
+        <h4>Memory Limit : {{p.TimeLimit}} s </h4>
+        <h4>Time Limit : {{p.MemoryLimit}} kb</h4>
+        <div class="card-text overflow-hidden">
+          <button class="btn btn-outline-info btn-sm" [routerLink]="['/problems/', p._id]">Solve Now</button>
+        </div>
+      </div>
+    </div>
+    <!-- cc-card-1 ends here -->
+  </div>
+  <!-- cc row 1 ends  -->
+
+  <!-- competitive coding section ends here -->
+  <app-footer></app-footer>
+</div>
